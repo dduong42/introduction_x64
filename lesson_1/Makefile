@@ -1,18 +1,21 @@
 AS			=	nasm
 ASFLAGS		=	-f macho64
+NAME		=	exit
+OBJ			=	exit.o
+LDFLAGS		=	-lc
 
-all			:	exit
+all			:	$(NAME)
 
-exit		:	exit.o
-			$(LD) $< -o $@
+$(NAME)		:	$(OBJ)
+			$(LD) $(LDFLAGS) $< -o $@
 
 %.o			:	%.s
 			$(AS) $(ASFLAGS) $< -o $@
 
 clean		:
-			$(RM) exit.o
+			$(RM) $(OBJ)
 
 fclean		:	clean
-			$(RM) exit
+			$(RM) $(NAME)
 
 re			:	fclean all
