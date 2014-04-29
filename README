@@ -6,3 +6,4 @@ http://www.nasm.us/
 
 Lesson 1: A simple program that returns 42. (Syscall example)
 Lesson 2: Same thing but with a function call.
+Lesson 3: First function
