@@ -1,10 +1,10 @@
 %include "misc.inc"
 
-extern hello
+extern _hello
 global start
 
 start:
-call hello
+call _hello
 
 ; _exit(0);
 mov rax, MACH_SYSCALL(EXIT)

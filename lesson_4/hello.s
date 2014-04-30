@@ -1,8 +1,11 @@
 %include "misc.inc"
 
-global hello
+global _hello
 
-hello:
+string:
+db "Hello World !", 0xa
+
+_hello:
 
 ; We'll be using the stack
 push rbp
@@ -12,13 +15,9 @@ mov rbp, rsp
 mov rax, MACH_SYSCALL(WRITE)
 mov rdi, STDOUT
 
-mov rsi, 0x0a2120646c72     ; "rld !\n"
-push rsi
-mov rsi, 0x6f57206f6c6c6548 ; "Hello Wor"
-push rsi
-mov rsi, rsp
+lea rsi, [rel string]
 
-mov rdx, 15
+mov rdx, _hello - string
 
 syscall
 
